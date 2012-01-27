@@ -188,7 +188,8 @@ public class Pusher {
 		JSONObject data = new JSONObject();
 		try {
 			data.put("auth", authToken);
-			data.put("channel_data", new JSONObject().put("user_id", userId));
+			String channel_data = new JSONObject().put("\\\"user_id\\\"", userId).toString();
+			data.put("channel_data", channel_data);
 		} catch(Exception ex) {
 			
 		}
